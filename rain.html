@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rain</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .raincover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+      }
+
+      .lightning {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 2;
+        transition: opacity 0.5s;
+      }
+
+      .lightning.flash {
+        opacity: 0.85;
+      }
+    </style>
+  </head>
+
+  <body>
+    <video class="raincover" autoplay loop muted>
+      <source src="./rain.mp4" type="video/mp4" />
+    </video>
+
+    <div class="lightning"></div>
+
+    <script>
+      const lightningDiv = document.querySelector(".lightning");
+
+      function triggerLightning() {
+        lightningDiv.classList.add("flash");
+        setTimeout(() => {
+          lightningDiv.classList.remove("flash");
+        }, 100);
+      }
+
+      setInterval(() => {
+        if (Math.random() < 0.1) {
+          triggerLightning();
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
