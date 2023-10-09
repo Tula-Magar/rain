@@ -39,15 +39,29 @@
       .lightning.flash {
         opacity: 0.85;
       }
+
+      .video-attribution {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        z-index: 3;
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 5px;
+        border-radius: 5px;
+      }
     </style>
   </head>
 
   <body>
     <video class="raincover" autoplay loop muted>
-      <source src="rain.mp4" type="video/mp4" />
+      <source src="./rain.mp4" type="video/mp4" />
     </video>
 
     <div class="lightning"></div>
+
+    <div class="video-attribution">
+      Video by <a href="https://pixabay.com/users/josephphackney-15024843/?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=126996">Joe Hackney</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=126996">Pixabay</a>
+    </div>
 
     <script>
       const lightningDiv = document.querySelector(".lightning");
